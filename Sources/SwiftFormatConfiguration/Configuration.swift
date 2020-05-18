@@ -25,6 +25,7 @@ public struct Configuration: Codable, Equatable {
     case lineLength
     case tabWidth
     case indentation
+    case whitespaceOnly
     case respectsExistingLineBreaks
     case lineBreakBeforeControlFlowKeywords
     case lineBreakBeforeEachArgument
@@ -60,6 +61,10 @@ public struct Configuration: Codable, Equatable {
   ///
   /// All indentation will be conducted in multiples of this configuration.
   public var indentation: Indent = .spaces(2)
+
+  /// When true, only whitespace (e.g. spaces, newlines) are modified. Text changes (e.g. add/remove
+  /// trailing commas) are not performed.
+  public var whitespaceOnly = false
 
   /// Indicates that the formatter should try to respect users' discretionary line breaks when
   /// possible.
